@@ -111,6 +111,7 @@
         .hero-content {
             position: relative;
             z-index: 1;
+            
         }
 
         .hero h1 {
@@ -124,11 +125,91 @@
             animation: fadeInUp 1s ease-out;
         }
 
+        /* Add this to your <style> block */
+        .profile-picture {
+            width: 180px; /* Adjust as needed */
+            height: 180px; /* Adjust as needed */
+            border-radius: 50%; /* Makes it circular */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            margin-bottom: 2rem;
+            border: 4px solid #60a5fa; /* Optional: adds a border */
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.4); /* Optional: adds a glow effect */
+        }
+
+                /* Add this to your <style> block */
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+        }
+
         .hero-subtitle {
             font-size: 1.3rem;
             color: #94a3b8;
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        /* Update these rules in your <style> block */
+
+        .project-image {
+            width: 100%;
+            /* Remove fixed height, or make it a min-height for consistent card height if needed */
+            /* height: 200px; /* REMOVE or change to min-height */
+            min-height: 180px; /* Optional: Set a minimum height for consistency, adjust as needed */
+            display: flex; /* Use flexbox to center image vertically if needed */
+            align-items: center; /* Center image vertically */
+            justify-content: center; /* Center image horizontally */
+            overflow: hidden;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .project-image img {
+            max-width: 100%; /* Ensure image doesn't overflow container width */
+            max-height: 250px; /* Limit the maximum height of the image, adjust as needed */
+            width: auto; /* Allow width to adjust based on aspect ratio */
+            height: auto; /* Allow height to adjust based on aspect ratio */
+            object-fit: contain; /* This is crucial: scales the image to fit the container while preserving aspect ratio and showing the entire image */
+            transition: transform 0.3s ease;
+            display: block; /* Removes extra space below image if it's inline */
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05); /* Keep the hover effect */
+        }
+
+        /* Optional: If cards become too varied in height, you might consider setting a min-height for .project-card
+        to maintain a more uniform grid layout. However, this could reintroduce some blank space. */
+        /* .project-card {
+            min-height: 400px; /* Example min-height, adjust based on content and desired look */
+        /* } */
+
+        .project-link {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: #3b82f6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #1d4ed8;
         }
 
         .contact-info {
@@ -329,6 +410,59 @@
             line-height: 1.6;
         }
 
+        /* Update these rules in your <style> block */
+
+        .activity-image {
+            width: 100%;
+            min-height: 250px; /* Increased minimum height for a larger container */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+
+        .activity-image img {
+            max-width: 100%; /* Ensures image doesn't go beyond container width */
+            max-height: 300px; /* Increased maximum height for the image */
+            width: auto; /* Allows width to adjust proportionally */
+            height: auto; /* Allows height to adjust proportionally */
+            object-fit: contain; /* Scales the image to fit the container while preserving aspect ratio and showing the entire image. */
+            /* If you prefer the image to fill the space and accept some cropping, use 'cover' instead: */
+            /* object-fit: cover; */
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        /* Optional: Keep the hover effect for activity images */
+        .activity-card:hover .activity-image img {
+            transform: scale(1.05);
+        }
+
+        .activity-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap; /* Allows links to wrap on smaller screens */
+        }
+
+        .activity-link {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: #3b82f6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .activity-link:hover {
+            background-color: #1d4ed8;
+        }
+
         /* Activities List */
         .activities-list {
             display: grid;
@@ -460,6 +594,7 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
+                    <img src="formalpiccrop.jpg" alt="Adib Rusyaidi" class="profile-picture">
                     <h1>Adib Rusyaidi Mohd Zaki</h1>
                     <p class="hero-subtitle">AI Developer & Computer Science Student</p>
                     
@@ -475,6 +610,15 @@
                         <a href="#" class="contact-item">
                             <span>👤</span>
                             <span>Adib Rusyaidi</span>
+                        </a>
+                         <a href="Adib Rusyaidi Mohd Zaki.pdf" target="_blank" class="action-button">
+                            <span>📄</span> Resume
+                        </a>
+                        <a href="https://github.com/d33ppo" target="_blank" class="action-button">
+                            <span>🐙</span> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/adib-rusyaidi-099446294/" target="_blank" class="action-button">
+                            <span>💼</span> LinkedIn
                         </a>
                     </div>
 
@@ -499,11 +643,17 @@
                                 <span class="tech-tag">NLP</span>
                             </div>
                         </div>
+                        <div class="project-image">
+                            <img src="NLP.png" alt="Text Similarity Project Screenshot">
+                        </div>
                         <div class="project-content">
                             <ul class="project-features">
                                 <li>Developed an AI-powered system that recommends relevant internships by analyzing resumes and job descriptions using NLP techniques</li>
                                 <li>Implemented hybrid text similarity algorithms (TF-IDF + Sentence-BERT) to enhance matching accuracy and personalization</li>
                             </ul>
+                            <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                <a href="https://github.com/d33ppo/resume-job-matcher" target="_blank" class="project-link">GitHub Repo</a>
+                            </div>
                         </div>
                     </div>
 
@@ -516,11 +666,17 @@
                                 <span class="tech-tag">Android Studio</span>
                             </div>
                         </div>
+                        <div class="project-image">
+                            <img src="MAD.png" alt="Text Similarity Project Screenshot">
+                        </div>
                         <div class="project-content">
                             <ul class="project-features">
                                 <li>Implemented core functionalities: User authentication, service listings, and booking management for seamless experience</li>
                                 <li>Integrated Firebase for real-time database management, enhancing app responsiveness and scalability</li>
                             </ul>
+                            <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                <a href="https://github.com/d33ppo/ServiceFlexApp" target="_blank" class="project-link">GitHub Repo</a>
+                            </div>
                         </div>
                     </div>
 
@@ -532,11 +688,17 @@
                                 <span class="tech-tag">Oracle</span>
                             </div>
                         </div>
+                        <div class="project-image">
+                            <img src="DB.jpg" alt="Text Similarity Project Screenshot">
+                        </div>
                         <div class="project-content">
                             <ul class="project-features">
                                 <li>Developed a DBMS for He&She Coffee to optimize stock and inventory management</li>
                                 <li>Analyzed existing processes and collaborated with team management to identify inefficiencies and areas for improvement</li>
                             </ul>
+                            <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                <a href="https://github.com/kemarkhan/database" target="_blank" class="project-link">GitHub Repo</a>
+                            </div>
                         </div>
                     </div>
 
@@ -550,11 +712,17 @@
                                 <span class="tech-tag">SPSS</span>
                             </div>
                         </div>
+                        <div class="project-image">
+                            <img src="CS.png" alt="Text Similarity Project Screenshot">
+                        </div>
                         <div class="project-content">
                             <ul class="project-features">
                                 <li>Defined Areas of Interest (AOIs) and extracted gaze metrics such as fixation duration, number of fixations, and time to first fixation</li>
                                 <li>Performed descriptive and inferential statistical analysis using SPSS and Colab (Python), including predictive modeling and hypothesis testing</li>
                             </ul>
+                            <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                <a href="https://colab.research.google.com/drive/1WXs_O0X4e5YIvr5jwfdQUpnhDzlS_g7n?usp=sharing" target="_blank" class="project-link">Colab Repo</a>
+                            </div>
                         </div>
                     </div>
 
@@ -567,16 +735,23 @@
                                 <span class="tech-tag">Machine Learning</span>
                             </div>
                         </div>
+                        <div class="project-image">
+                            <img src="IDS.png" alt="Text Similarity Project Screenshot">
+                        </div>
                         <div class="project-content">
                             <ul class="project-features">
                                 <li>Developed a supervised machine learning model to classify credit risk levels using financial and demographic data</li>
                                 <li>Analyzed historical loan applicant data (10,000+ records) to identify key factors influencing default risk and loan eligibility</li>
                             </ul>
+                            <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                <a href="https://colab.research.google.com/drive/1Hbxs9qzQMd5cxHiJkatrncejOS4OXE4x?usp=sharing" target="_blank" class="project-link">Colab Repo</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        
 
         <section id="education" class="section">
             <div class="container">
@@ -603,48 +778,67 @@
                         <p class="card-subtitle">Universiti Malaya</p>
                         <p class="card-date">Aug 2022 — Jun 2023</p>
                         <p class="card-location">Kuala Lumpur</p>
+                        <p style="color: #60a5fa; font-weight: 600; margin-bottom: 1rem;">CGPA: 3.73</p>
+
+                        <div class="coursework">
+                            <h4 class="coursework-title">Relevant Coursework:</h4>
+                            <p class="coursework-list">
+                                Programming I (C++), Programming II (C++), Mathematics III (R)
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="activities" class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">Extra-Curricular Activities & Volunteerism</h2>
-                
-                <div class="activities-list">
-                    <div class="activity-card fade-in">
-                        <h3 class="card-title">Persatuan Komputer Universiti Malaya (PEKOM)</h3>
-                        <p class="card-subtitle">Executive Committee Member</p>
-                        <p class="card-date">Oct 2023 — Present</p>
-                        <p class="card-location">Universiti Malaya</p>
-                        <p style="color: #cbd5e1; margin-bottom: 1rem;">Managed a series of programs for PEKOM projects including open days and hackathon events</p>
-                        
-                        <ul class="activity-responsibilities">
-                            <li>Head of Logistics and Technical Department (Environmental Day 2025)</li>
-                            <li>Contest Protocol Member (UM Internal Hackathon 2024)</li>
-                            <li>Technical Member (AI Day 2025)</li>
-                        </ul>
-                    </div>
-
-                    <div class="activity-card fade-in">
-                        <h3 class="card-title">Robomania 2024</h3>
-                        <p class="card-subtitle">Volunteer</p>
-                        <p class="card-date">Nov 2024</p>
-                        <p class="card-location">Kuala Lumpur</p>
-                        <p style="color: #cbd5e1;">Volunteered at Pusat Sains Negara as a field runner for a robotics competition where teams built soccer-playing robots.</p>
-                    </div>
-
-                    <div class="activity-card fade-in">
-                        <h3 class="card-title">Learning Facilitator</h3>
-                        <p class="card-subtitle">TCS Assignment Volunteer</p>
-                        <p class="card-date">Nov 2024</p>
-                        <p class="card-location">Klang</p>
-                        <p style="color: #cbd5e1;">Volunteered as the learning facilitator for TCS Assignment where I teach AI fundamentals to primary school students (SK Bukit Kuda, Klang)</p>
-                    </div>
+    <div class="container">
+        <h2 class="section-title fade-in">Extra-Curricular Activities & Volunteerism</h2>
+        
+        <div class="activities-list">
+            <div class="activity-card fade-in">
+                <h3 class="card-title">Persatuan Komputer Universiti Malaya (PEKOM)</h3>
+                <p class="card-subtitle">Executive Committee Member</p>
+                <p class="card-date">Oct 2023 — Present</p>
+                <p class="card-location">Universiti Malaya</p>
+                <div class="activity-image">
+                    <img src="envi day.jpg" alt="PEKOM Activity Image">
                 </div>
+                <p style="color: #cbd5e1; margin-bottom: 1rem;">Managed a series of programs for PEKOM projects including open days and hackathon events</p>
+                
+                <ul class="activity-responsibilities">
+                    <li>Head of Logistics and Technical Department (Environmental Day 2025)</li>
+                    <li>Contest Protocol Member (UM Internal Hackathon 2024)</li>
+                    <li>Technical Member (AI Day 2025)</li>
+                </ul>
             </div>
-        </section>
+
+            <div class="activity-card fade-in">
+                <h3 class="card-title">Robomania 2024</h3>
+                <p class="card-subtitle">Volunteer</p>
+                <p class="card-date">Nov 2024</p>
+                <p class="card-location">Kuala Lumpur</p>
+                <div class="activity-image">
+                    <img src="Robomania.jpg" alt="Robomania Activity Image">
+                </div>
+                <p style="color: #cbd5e1;">Volunteered at Pusat Sains Negara as a field runner for a robotics competition where teams built soccer-playing robots.</p>
+                
+            </div>
+
+            <div class="activity-card fade-in">
+                <h3 class="card-title">Learning Facilitator</h3>
+                <p class="card-subtitle">TCS Assignment Volunteer</p>
+                <p class="card-date">Nov 2024</p>
+                <p class="card-location">Klang</p>
+                <div class="activity-image">
+                    <img src="TCS.jpg" alt="TCS Activity Image">
+                </div>
+                <p style="color: #cbd5e1;">Volunteered as the learning facilitator for TCS Assignment where I teach AI fundamentals to primary school students (SK Bukit Kuda, Klang)</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <script>
